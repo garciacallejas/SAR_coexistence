@@ -17,7 +17,7 @@ hetalphas <- read.csv2(file = "./data/01_alpha_heterogeneous.csv",header = TRUE,
 homlambdas <- read.csv2(file = "./data/01_05_lambda_homogeneous.csv",header = TRUE,stringsAsFactors = FALSE)
 homalphas <- read.csv2(file = "./data/01_05_alpha_homogeneous.csv",header = TRUE,stringsAsFactors = FALSE)
 
-sp.rates <- read.csv2(file = ".data/01_05_plant_species_traits.csv",header = TRUE,stringsAsFactors = FALSE)
+sp.rates <- read.csv2(file = "./data/01_05_plant_species_traits.csv",header = TRUE,stringsAsFactors = FALSE)
 
 # obtain structural metrics -----------------------------------------------
 
