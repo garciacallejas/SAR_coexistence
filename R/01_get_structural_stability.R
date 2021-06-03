@@ -1,4 +1,4 @@
-# calculate structural metrics and plots for the observed values
+# calculate structural metrics for the observed values
 
 # initial info ------------------------------------------------------------
 
