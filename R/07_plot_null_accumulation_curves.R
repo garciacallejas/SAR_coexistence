@@ -130,3 +130,7 @@ ggsave(filename = paste("./images/Fig_4.pdf",sep=""),
        plot = null.coex.plot,
        device = cairo_pdf,
        width = 9,height = 3,dpi = 600)
+# ggsave(filename = paste("./images/Fig_4.png",sep=""),
+#        plot = null.coex.plot,
+#        # device = cairo_pdf,
+#        width = 9,height = 3,dpi = 600)

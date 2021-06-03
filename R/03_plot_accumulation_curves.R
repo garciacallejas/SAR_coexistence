@@ -98,6 +98,8 @@ add.coex.plot <- ggplot(addrcoex, aes(x = area, y = coexisting.sp, group = fit.t
 ggsave(filename = paste("./images/Fig_2.pdf",sep=""),plot = add.coex.plot,
        device = cairo_pdf,
        width = 9,height = 3,dpi = 600)
+# ggsave(filename = paste("./images/Fig_2.png",sep=""),plot = add.coex.plot,
+#        width = 9,height = 3,dpi = 600)
 
 # write the datafraame to disk - it is necessary for Table S1
 write.csv2(addrcoex,"./results/S3_accumulation_curves_data.csv",row.names = FALSE)

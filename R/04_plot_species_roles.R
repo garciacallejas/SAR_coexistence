@@ -146,3 +146,8 @@ ggsave(filename = paste("./images/Fig_3.pdf",sep=""),
        plot = catbar,
        device = cairo_pdf,
        width = 9,height = 3,dpi = 600)
+
+# ggsave(filename = paste("./images/Fig_3.png",sep=""),
+#        plot = catbar,
+#        # device = cairo_pdf,
+#        width = 9,height = 3,dpi = 600)
