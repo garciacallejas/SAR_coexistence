@@ -1,5 +1,5 @@
 # plot accumulation curves from posterior draws of alpha and lambda coefficients
-# this is Fig SXXX of the manuscript
+# this is Fig S3 of the manuscript
 
 # read data ---------------------------------------------------------------
 library(tidyverse)
@@ -82,16 +82,18 @@ palette.values <- my.palette[c(2,6,4,3,7)]
 
 null.color.1 <- "grey"#"#99DAFF"#"d3ebf8"
 null.color.2 <- "grey"#"#66C7FF"
-null.color.mean <- palette.values[2]
 
 n1 <- ggplot(addob, aes(x = area, y = coexisting.sp))+
   
   # null lines
-  geom_line(data = addnull,aes(x = area,y = coexisting.sp, group = replicate),size = .1,color = null.color.1,alpha = .8) +
+  geom_line(data = addnull,aes(x = area,y = coexisting.sp, group = replicate),
+            size = .1,
+            color = null.color.1,
+            alpha = .8) +
   
   # mean curves
-  geom_line(aes(color = fit.type),size = 1.2)+
-  geom_point(aes(fill = fit.type),shape = 21,size = 3)+
+  geom_line(aes(color = fit.type),size = .7)+
+  geom_point(aes(fill = fit.type),shape = 21,size = 2)+
   scale_color_manual(name = "",values = palette.values,labels = c("heterogeneous\ncoexistence",
                                                         "homogeneous\ncoexistence",
                                                         "richness")) +
@@ -104,9 +106,10 @@ n1 <- ggplot(addob, aes(x = area, y = coexisting.sp))+
   theme(strip.background = element_blank())+
   theme(strip.text.x = element_text(face = "bold"))+
   theme(panel.grid.minor=element_blank())+
-  ylab("species")+
+  theme(legend.position = "none") +
+  ylab("average number of species")+
   xlab(bquote('area'~(m^2)))+
   NULL
 # n1
 
-# ggsave(filename = paste("./images/Fig_S4.pdf",sep=""),plot = n1,device = cairo_pdf,width = 9,height = 3,dpi = 600)
+# ggsave(filename = paste("./images/Fig_S3.pdf",sep=""),plot = n1,device = cairo_pdf,width = 7,height = 3,dpi = 600)
