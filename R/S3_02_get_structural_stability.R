@@ -35,8 +35,8 @@ source("./R/toolbox_coexistence.R")
 
 # initial data ------------------------------------------------------------
 
-fit.type <- "heterogeneous_time"
-# fit.type <- "heterogeneous_both"
+# fit.type <- "heterogeneous_time"
+fit.type <- "heterogeneous_both"
 
 richness <- read.csv2("data/01_03_05_07_cummulative_richness.csv",header = T,stringsAsFactors = F)
 abundances <- read.csv2(file = "data/01_05_abundances.csv",header = T,stringsAsFactors = F)
@@ -44,6 +44,12 @@ lambdas <- read.csv2(file = paste("data/posterior_draws/S3_lambda_posterior_draw
 alphas <- read.csv2(file = paste("data/posterior_draws/S3_alpha_posterior_draws_",fit.type,".csv",sep=""),header = TRUE,stringsAsFactors = FALSE)
 sp.rates <- read.csv2(file = "data/01_05_plant_species_traits.csv",header = TRUE,stringsAsFactors = FALSE)
 valid.sp <- sp.rates$species.code[which(!is.na(sp.rates$germination.rate))]
+
+# just to check, what are the limits of these posterior distributions?
+# limits <- lambdas %>% drop_na(lambda) %>%
+#   filter(is.finite(lambda)) %>% 
+#   group_by(sp) %>% 
+#   summarise(posterior.min = min(lambda),posterior.max = max(lambda))
 
 # which year to take as a baseline
 base.year <- 2019

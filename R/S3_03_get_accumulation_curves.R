@@ -196,11 +196,13 @@ nullcoex <- foreach(i.id = 1:length(id.char),
                               
                               for(ipl in 1:nrow(mycombs)){
                                 
-                                testcomb <- NULL
+                                testcomb.list <- list()
                                 for(ip in 1:ncol(mycombs)){
-                                  testcomb <- rbind(testcomb,my.data[my.data$plot == names(mycombs)[ip] &
-                                                                       my.data$cc == mycombs[ipl,ip],])
+                                  testcomb.list[[ip]] <- my.data[my.data$plot == names(mycombs)[ip] &
+                                                                       my.data$cc == mycombs[ipl,ip],]
                                 }
+                                
+                                testcomb <- bind_rows(testcomb.list)
                                 
                                 spr <- testcomb %>% gather(key = "sp",value = "comb",all_of(null.sp)) %>%
                                   group_by(sp) %>%
