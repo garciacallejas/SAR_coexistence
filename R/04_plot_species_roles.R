@@ -117,15 +117,19 @@ catmean$category <- factor(catmean$category,levels = c("transient","dominant","i
 catmean$category <- dplyr::recode(catmean$category, indirect = "multispecies coexistence", pairwise = "pairwise coexistence")
 catmean$area <- catmean$n.plots * 8.5^2
 
-rpalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-palette.values <- rpalette[c(2,3,4,6,7)]
+# custom palette
+library(wesanderson)
+custom_palette <- wes_palette("Zissou1", 4, type = "discrete")
 
 catmean2 <- subset(catmean, category != "absent")
 
 catbar <- ggplot(catmean2,aes(x = area, y = num))+
   geom_col(aes(fill = category))+
   facet_grid(.~year)+
-  scale_fill_manual(name="category",values = palette.values) +
+  # scale_fill_manual(name="category",values = palette.values) +
+  scale_fill_manual(name = "category", values = custom_palette)+
+                       # direction = -1,
+                       # option = "E") +
   scale_y_continuous(breaks=c(0,seq(1, 20, 2)))+
   
   theme_bw()+
@@ -133,7 +137,7 @@ catbar <- ggplot(catmean2,aes(x = area, y = num))+
   theme(strip.background = element_blank())+
   theme(strip.text.x = element_text(face = "bold"))+
   # theme(panel.grid.minor=element_blank())+
-  ylab("species")+
+  ylab("average number of species")+
   xlab(bquote('area'~(m^2)))+
   NULL
 catbar
@@ -142,3 +146,8 @@ ggsave(filename = paste("./images/Fig_3.pdf",sep=""),
        plot = catbar,
        device = cairo_pdf,
        width = 9,height = 3,dpi = 600)
+
+# ggsave(filename = paste("./images/Fig_3.png",sep=""),
+#        plot = catbar,
+#        # device = cairo_pdf,
+#        width = 9,height = 3,dpi = 600)
