@@ -1,4 +1,4 @@
-### Code and data for: 
+### Code and data for 
 
 #### The spatial configuration of biotic interactions shapes coexistence-area relationships in an annual plant community
 
