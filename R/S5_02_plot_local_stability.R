@@ -3,11 +3,8 @@ library(tidyverse)
 
 # initial data ------------------------------------------------------------
 
-# feas <- read.csv2(file = "./results/02_observed_structural_metrics.csv")
 local.stab.het <- read.csv2(file = "results/local_stability_analysis/S5_local_stability_heterogeneous.csv")
 local.stab.hom <- read.csv2(file = "results/local_stability_analysis/S5_local_stability_homogeneous.csv")
-
-# feas <- subset(feas, !is.na(feasibility))
 
 # -------------------------------------------------------------------------
 # join both datasets
