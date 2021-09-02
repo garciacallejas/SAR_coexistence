@@ -4,6 +4,8 @@
 
 David Garcia-Callejas, Ignasi Bartomeus, and Oscar Godoy
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5390313.svg)](https://doi.org/10.5281/zenodo.5390313)
+
 ### Structure:
 
 the workflow of the analyses is given by the order of the R scripts in folder "R".
