@@ -48,6 +48,17 @@ addrcoex <- bind_rows(rich.mean,homadd,hetadd)
 addrcoex$n.plots <- as.factor(addrcoex$n.plots)
 addrcoex$area <- as.numeric(as.character(addrcoex$n.plots)) * 8.5^2
 
+# n
+# n.het <- het %>% 
+#   group_by(fit.type,year,n.plots) %>%
+#   summarise(n = n())
+# n.hom <- hom %>% 
+#   group_by(year,n.plots) %>%
+#   summarise(n = n())
+# n.rich <- rich.area %>%
+#   group_by(year,n.plots) %>%
+#   summarise(n = n())
+
 # plot
 my.palette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 palette.values <- my.palette[c(2,6,4,3,7)]
