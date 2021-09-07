@@ -42,6 +42,12 @@ interactions.observed <- bind_rows(hom.diag.dom,het.diag.dom)
 interactions.observed$year <- as.factor(interactions.observed$year)
 interactions.observed$intra.inter.ratio <- interactions.observed$intra/interactions.observed$mean.inter
 
+# n
+# interactions.observed %>%
+#   group_by(model,year) %>%
+#   filter(!is.na(intra)) %>%
+#   summarise(num.intra = n())
+
 intra.plot <- ggplot(interactions.observed, aes(x = year, y = intra, fill = model))+
   geom_boxplot(alpha = 0.60,outlier.size = .7,outlier.colour = "darkgrey") +
   scale_fill_OkabeIto(order = c(1,5)) +
@@ -54,6 +60,12 @@ yintra = boxplot.stats(interactions.observed$intra)$stats[c(1, 5)]
 intra.scale.plot <- intra.plot + coord_cartesian(ylim = yintra*3.5)
 intra.scale.plot
 
+# n
+# interactions.observed %>%
+#   group_by(model,year) %>%
+#   filter(!is.na(mean.inter)) %>%
+#   summarise(mean.inter = n())
+
 inter.plot <- ggplot(interactions.observed, aes(x = year, y = mean.inter, fill = model))+
   geom_boxplot(alpha = 0.60,outlier.size = .7,outlier.colour = "darkgrey") +
   scale_fill_OkabeIto(order = c(1,5)) +
@@ -65,6 +77,12 @@ inter.plot <- ggplot(interactions.observed, aes(x = year, y = mean.inter, fill =
 yinter = boxplot.stats(interactions.observed$mean.inter)$stats[c(1, 5)]
 inter.scale.plot <- inter.plot + coord_cartesian(ylim = yinter*2)
 inter.scale.plot
+
+# n
+# interactions.observed %>%
+#   group_by(model,year) %>%
+#   filter(!is.na(intra.inter.ratio)) %>%
+#   summarise(num.ratio = n())
 
 ratio.plot <- ggplot(interactions.observed, aes(x = year, y = intra.inter.ratio, fill = model))+
   geom_boxplot(alpha = 0.60,outlier.size = .7,outlier.colour = "darkgrey") +
@@ -165,8 +183,15 @@ summary.ii <- iip %>%
 
 summary.ii$year <- as.factor(summary.ii$year)
 
-s2 <- ggplot(summary.ii[summary.ii$parameterization == "heterogeneous",], 
-                                aes(x = year, y = higher.intra.both)) + 
+summary.ii.het <- summary.ii[summary.ii$parameterization == "heterogeneous",]
+
+# n
+summary.ii.het %>%
+  group_by(year) %>%
+  summarise(num = n()) 
+
+
+s2 <- ggplot(summary.ii.het, aes(x = year, y = higher.intra.both)) + 
   # geom_point(fill = "grey", shape = 21, size = .9, position = position_dodge(.2)) + 
   geom_boxplot(fill = "lightgrey",outlier.colour = "grey",outlier.size = .8) +
   # geom_hline(yintercept = .5, linetype = "dashed", color = "darkgrey") +
