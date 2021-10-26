@@ -4,7 +4,9 @@
 
 David Garcia-Callejas, Ignasi Bartomeus, and Oscar Godoy
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5390313.svg)](https://doi.org/10.5281/zenodo.5390313)
+[![Published paper]](https://www.nature.com/articles/s41467-021-26487-2)
+
+[![DOI of code and data](https://zenodo.org/badge/DOI/10.5281/zenodo.5390313.svg)](https://doi.org/10.5281/zenodo.5390313)
 
 ### Structure:
 
